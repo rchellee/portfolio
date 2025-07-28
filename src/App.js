@@ -6,7 +6,6 @@ import {
   FaLinkedinIn,
   FaPinterest,
 } from "react-icons/fa";
-import logo from "./assets/logo.png";
 import girl from "./assets/me.png";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <nav>
           <div className="navbar">
             <div className="logo">
-              <a href="#">Portfolio.</a>
+              <a href="/">Portfolio.</a>
             </div>
             <ul className="menu">
               <li>
@@ -37,7 +36,7 @@ function App() {
             </ul>
             <div className="search-box">
               <input type="text" placeholder="Search here..." />
-              <a href="#">
+              <a href="/">
                 <FaSearch />
               </a>
             </div>
@@ -62,7 +61,7 @@ function App() {
             </div>
           </div>
           <div className="girl">
-            <img src={girl} alt="Hannah Lennon" />
+            <img src={girl} alt="Ritchelle Rueras" />
           </div>
         </div>
         <div className="media-icons">
