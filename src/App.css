@@ -39,13 +39,13 @@ header nav {
   align-items: center;
   justify-content: space-between;
 }
-nav .navbar .logo a {
+nav .navbar .logo p {
   font-weight: 500;
   font-size: 35px;
   color: #4070f4;
   font-family: "Ubuntu", sans-serif;
 }
-nav.sticky .navbar .logo a {
+nav.sticky .navbar .logo p {
   color: #fff;
 }
 header nav .logo {

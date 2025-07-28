@@ -15,17 +15,17 @@ function App() {
         <nav>
           <div className="navbar">
             <div className="logo">
-              <a href="/">Portfolio.</a>
+              <p>myPortfolio</p>
             </div>
             <ul className="menu">
               <li>
                 <a href="/">Home</a>
               </li>
               <li>
-                <a href="/latest">Latest</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="/category">Category</a>
+                <a href="/skills">Skills</a>
               </li>
               <li>
                 <a href="/services">Services</a>
@@ -33,6 +33,7 @@ function App() {
               <li>
                 <a href="/contact">Contact</a>
               </li>
+              
             </ul>
             <div className="search-box">
               <input type="text" placeholder="Search here..." />
