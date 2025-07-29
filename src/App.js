@@ -369,7 +369,7 @@ function App() {
       <footer>
         <div className="text">
           <span>
-            Created By <a href="#home">Portfolio</a> | &#169;{" "}
+            Created By <a href="#home">M4XPAYNE</a> | &#169;{" "}
             {new Date().getFullYear()} All Rights Reserved
           </span>
         </div>
