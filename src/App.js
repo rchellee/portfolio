@@ -19,6 +19,7 @@ import { FaAndroid } from "react-icons/fa6";
 import "./App.css";
 import girl from "./assets/me.png";
 import about from "./assets/about.JPG";
+import resume from "./assets/Rueras_Resume.pdf";
 
 function App() {
   const [isSticky, setIsSticky] = useState(false);
@@ -86,8 +87,8 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="#services" onClick={hideMenu}>
-                Services
+              <a href="#projects" onClick={hideMenu}>
+                Projects
               </a>
             </li>
             <li>
@@ -156,7 +157,7 @@ function App() {
               <div className="job">
                 <span>An</span>
                 <div className="typing-text">
-                <span className="one">Aspiring </span>
+                  <span className="one">Aspiring </span>
                   <span className="two">Web </span>
                   <span className="three">Developer.</span>
                 </div>
@@ -203,7 +204,7 @@ function App() {
                 digital solutions.
               </p>
               <div className="button">
-                <button>Download CV</button>
+                <button onClick={() => window.open(resume)}>Download CV</button>
               </div>
             </div>
           </div>
@@ -218,30 +219,42 @@ function App() {
           </div>
           <div className="skills-details">
             <div className="text">
-              <div className="topic">Skills Reflects Our Knowledge</div>
+              <div className="topic">Academic & Project Experience</div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
-                natus tenetur tempora? Quasi, rem quas omnis. Porro rem
-                aspernatur reiciendis ut praesentium minima ad, quos, officia!
-                Illo libero, et, distinctio repellat sed nesciunt est modi
-                quaerat placeat. Quod molestiae, alias?
+                As a fresh graduate, my skills have been developed through
+                coursework, thesis projects, and personal learning. While I may
+                not have professional experience yet, I've gained practical
+                knowledge in these technologies through hands-on academic
+                projects and self-study.
               </p>
               <div className="experience">
-                <div className="num">10</div>
+                <div className="num">4</div>
                 <div className="exp">
                   Years Of <br />
-                  Experience
+                  Academic Focus
                 </div>
               </div>
             </div>
             <div className="boxes">
               <div className="box">
-                <div className="topic">HTML</div>
+                <div className="topic">Microsoft Office</div>
                 <div className="per">90%</div>
               </div>
               <div className="box">
-                <div className="topic">CSS</div>
+                <div className="topic">C Languange</div>
+                <div className="per">70%</div>
+              </div>
+              <div className="box">
+                <div className="topic">C++ </div>
+                <div className="per">75%</div>
+              </div>
+              <div className="box">
+                <div className="topic">Database (MySQL)</div>
                 <div className="per">80%</div>
+              </div>
+              <div className="box">
+                <div className="topic">Web Dev (React.js)</div>
+                <div className="per">75%</div>
               </div>
               <div className="box">
                 <div className="topic">JavScript</div>
@@ -251,16 +264,20 @@ function App() {
                 <div className="topic">PHP</div>
                 <div className="per">60%</div>
               </div>
+              <div className="box">
+                <div className="topic">Python</div>
+                <div className="per">65%</div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="services" id="services">
+      {/* Projects Section */}
+      <section className="projects" id="projects">
         <div className="content">
           <div className="title">
-            <span>My Services</span>
+            <span>My Projects</span>
           </div>
           <div className="boxes">
             <div className="box">
