@@ -154,10 +154,11 @@ function App() {
             <div className="name">Ritchelle Rueras</div>
             <div className="job">
               <div className="job">
-                <span>And I'm a</span>
+                <span>An</span>
                 <div className="typing-text">
-                  <span className="one">Web </span>
-                  <span className="two">Developer</span>
+                <span className="one">Aspiring </span>
+                  <span className="two">Web </span>
+                  <span className="three">Developer.</span>
                 </div>
               </div>
             </div>
