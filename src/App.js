@@ -15,15 +15,23 @@ import {
   FaLinkedin,
   FaTelegram,
 } from "react-icons/fa";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
 import { FaAndroid } from "react-icons/fa6";
 import "./App.css";
 import girl from "./assets/me.png";
 import about from "./assets/about.JPG";
-import resume from "./assets/Rueras_Resume.pdf";
+import gtechPDF from "./assets/gtech.pdf";
+
 
 function App() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const resumeLink =
+    "https://www.canva.com/design/DAG-2r78ojI/_p-LB_N8q5fRBRMQUnMm4Q/view?utm_content=DAG-2r78ojI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6808e672bb";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,6 +97,11 @@ function App() {
             <li>
               <a href="#projects" onClick={hideMenu}>
                 Projects
+              </a>
+            </li>
+            <li>
+              <a href="#certificates" onClick={hideMenu}>
+                Certificates
               </a>
             </li>
             <li>
@@ -165,8 +178,8 @@ function App() {
             </div>
             <div className="buttons">
               <button onClick={() => scrollToSection("about")}>About Me</button>
-              <button onClick={() => scrollToSection("contact")}>
-                Follow Me
+              <button onClick={() => window.open(resumeLink, "_blank")}>
+                My CV
               </button>
             </div>
           </div>
@@ -203,9 +216,6 @@ function App() {
                 learning ability, and enthusiasm for creating well-structured
                 digital solutions.
               </p>
-              <div className="button">
-                <button onClick={() => window.open(resume)}>Download CV</button>
-              </div>
             </div>
           </div>
         </div>
@@ -341,6 +351,92 @@ function App() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section className="certificates" id="certificates">
+        <div className="content">
+          <div className="title">
+            <span>My Certificates</span>
+          </div>
+
+          <Swiper
+            modules={[Pagination, Navigation]}
+            loop={true}
+            spaceBetween={30}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            navigation={true}
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="card-wrapper"
+          >
+            <SwiperSlide className="card-item">
+  <a
+    href={gtechPDF}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="card-link"
+  >
+    <div
+      className="card-image"
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#f5f7ff",
+        fontSize: "1rem",
+        fontWeight: "600",
+        color: "#5372F0",
+      }}
+    >
+      View PDF Certificate
+    </div>
+
+    <p className="badge badge-designer">Certificate</p>
+    <h2 className="card-title">G-Tech Summit 2025</h2>
+  </a>
+</SwiperSlide>
+
+
+            <SwiperSlide className="card-item">
+              <a href="#" className="card-link">
+                <img
+                  src="/assets/cert2.jpg"
+                  alt="Certificate 2"
+                  className="card-image"
+                />
+                <p className="badge badge-developer">Certificate</p>
+                <h2 className="card-title">React.js Training</h2>
+              </a>
+            </SwiperSlide>
+
+            <SwiperSlide className="card-item">
+              <a href="#" className="card-link">
+                <img
+                  src="/assets/cert3.jpg"
+                  alt="Certificate 3"
+                  className="card-image"
+                />
+                <p className="badge badge-marketer">Certificate</p>
+                <h2 className="card-title">Database Management</h2>
+              </a>
+            </SwiperSlide>
+            <SwiperSlide className="card-item">
+              <a href="#" className="card-link">
+                <img
+                  src="/assets/cert3.jpg"
+                  alt="Certificate 3"
+                  className="card-image"
+                />
+                <p className="badge badge-marketer">Certificate</p>
+                <h2 className="card-title">Database Management</h2>
+              </a>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </section>
 

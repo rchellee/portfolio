@@ -437,6 +437,90 @@ section .button button:hover {
 .projects .boxes .box:hover p {
   color: #fff;
 }
+
+/* Certificates Section CSS */
+.certificates {
+  padding: 60px 0;
+}
+
+.card-wrapper {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px 10px;
+}
+
+.card-item {
+  list-style: none;
+}
+
+.card-link {
+  display: block;
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid transparent;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.2s ease;
+}
+
+.card-link:hover {
+  border-color: #5372f0;
+}
+
+.card-image {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.badge {
+  color: #5372f0;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  font-weight: 500;
+  background: #dde4ff;
+  margin: 16px 0 18px;
+  display: inline-block;
+}
+
+.badge-designer {
+  color: #b22485;
+  background: #f7dff5;
+}
+
+.badge-developer {
+  color: #5372f0;
+  background: #dde4ff;
+}
+
+.badge-marketer {
+  color: #b25a2b;
+  background: #ffe3d2;
+}
+
+.card-title {
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #5372f0;
+}
+
+.swiper-pagination-bullet {
+  background: #5372f0;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
 /* Contact Me CSS */
 .contact {
   background: #f0f8ff;
