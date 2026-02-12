@@ -14,6 +14,11 @@ import {
   FaInstagram,
   FaLinkedin,
   FaTelegram,
+  FaBriefcase,
+  FaCalendar,
+  FaMapMarkerAlt,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,16 +27,61 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
 import { FaAndroid } from "react-icons/fa6";
 import "./App.css";
+
+//IMAGES AND FILES
 import girl from "./assets/me.png";
 import about from "./assets/about.JPG";
 import gtechPDF from "./assets/gtech.pdf";
-
+import marianaBg from "./assets/mariana.png";
+import seadonBg from "./assets/SEADON.png";
+import teleperformanceBg from "./assets/TP.jpg";
 
 function App() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
+  const [currentExperience, setCurrentExperience] = useState(0);
+
   const resumeLink =
     "https://www.canva.com/design/DAG-2r78ojI/_p-LB_N8q5fRBRMQUnMm4Q/view?utm_content=DAG-2r78ojI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6808e672bb";
+
+  // Experience data array
+  const experiences = [
+    {
+      company: "Mariana Academy of Maritime Studies, Inc.",
+      role: "Quality Management",
+      date: "2025",
+      location: "Metro Manila, Philippines",
+      backgroundImage: marianaBg,
+      responsibilities: [
+        "Completed on-the-job training in the Quality Management Department",
+        "Managed and organized documents while assisting with digital record maintenance and data entry",
+      ],
+    },
+    {
+      company: "SEADON MARITIME SERVICES",
+      role: "Office Staff",
+      date: "2025",
+      location: "Metro Manila, Philippines",
+      backgroundImage: seadonBg,
+      responsibilities: [
+        "Responsible for managing social media pages",
+        "Addressed seafarer inquiries",
+        "Assisted with the enrollment of seafarers in training programs",
+      ],
+    },
+    {
+      company: "Teleperformance EDSA Greenfield",
+      role: "Operations Customer Expert I",
+      date: "2025-2026",
+      location: "Mandaluyong City, Manila, Philippines",
+      backgroundImage: teleperformanceBg,
+      responsibilities: [
+        "Assisted customers with account and service concerns through computer-based support systems",
+        "Troubleshoot device, connectivity, and signal issues",
+        "Maintained accurate documentation and high service quality",
+      ],
+    },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +110,21 @@ function App() {
       section.scrollIntoView({ behavior: "smooth" });
     }
     hideMenu();
+  };
+
+  const nextExperience = () => {
+    setCurrentExperience((prev) =>
+      prev === experiences.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  const prevExperience = () => {
+    setCurrentExperience((prev) =>
+      prev === 0 ? experiences.length - 1 : prev - 1,
+    );
+  };
+  const goToExperience = (index) => {
+    setCurrentExperience(index);
   };
 
   return (
@@ -92,6 +157,11 @@ function App() {
             <li>
               <a href="#skills" onClick={hideMenu}>
                 Skills
+              </a>
+            </li>
+            <li>
+              <a href="#experiences" onClick={hideMenu}>
+                Experiences
               </a>
             </li>
             <li>
@@ -283,6 +353,101 @@ function App() {
         </div>
       </section>
 
+      {/* Experiences Section */}
+      <section
+        className="experiences"
+        id="experiences"
+        style={{
+          backgroundImage: `linear-gradient(rgba(240, 248, 255, 0.03), rgba(240, 248, 255, 0.68)), url(${experiences[currentExperience].backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          transition: "background-image 0.5s ease-in-out",
+        }}
+      >
+        <div className="content">
+          <div className="title">
+            <span>My Experiences</span>
+          </div>
+
+          <div className="experiences-slider">
+            {/* Navigation Buttons */}
+            <button
+              className="slider-nav-btn prev-btn"
+              onClick={prevExperience}
+              aria-label="Previous experience"
+            >
+              <FaChevronLeft />
+            </button>
+
+            {/* Experience Card */}
+            <div className="experience-card active">
+              <div className="experience-header">
+                <div className="company-icon">
+                  <FaBriefcase />
+                </div>
+                <div className="company-info">
+                  <h3 className="company-name">
+                    {experiences[currentExperience].company}
+                  </h3>
+                  <div className="experience-details">
+                    <span className="experience-role">
+                      {experiences[currentExperience].role}
+                    </span>
+                    <div className="experience-meta">
+                      <span className="experience-date">
+                        <FaCalendar /> {experiences[currentExperience].date}
+                      </span>
+                      <span className="experience-location">
+                        <FaMapMarkerAlt />{" "}
+                        {experiences[currentExperience].location}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="experience-description">
+                <ul>
+                  {experiences[currentExperience].responsibilities.map(
+                    (item, index) => (
+                      <li key={index}>{item}</li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              className="slider-nav-btn next-btn"
+              onClick={nextExperience}
+              aria-label="Next experience"
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+
+          {/* Progress Dots */}
+          <div className="slider-dots">
+            {experiences.map((_, index) => (
+              <button
+                key={index}
+                className={`slider-dot ${index === currentExperience ? "active" : ""}`}
+                onClick={() => goToExperience(index)}
+                aria-label={`Go to experience ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Experience Counter */}
+          <div className="experience-counter">
+            <span className="current-index">{currentExperience + 1}</span>
+            <span className="divider">/</span>
+            <span className="total-experiences">{experiences.length}</span>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section className="projects" id="projects">
         <div className="content">
@@ -375,32 +540,31 @@ function App() {
             className="card-wrapper"
           >
             <SwiperSlide className="card-item">
-  <a
-    href={gtechPDF}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="card-link"
-  >
-    <div
-      className="card-image"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#f5f7ff",
-        fontSize: "1rem",
-        fontWeight: "600",
-        color: "#5372F0",
-      }}
-    >
-      View PDF Certificate
-    </div>
+              <a
+                href={gtechPDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-link"
+              >
+                <div
+                  className="card-image"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "#f5f7ff",
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    color: "#5372F0",
+                  }}
+                >
+                  View PDF Certificate
+                </div>
 
-    <p className="badge badge-designer">Certificate</p>
-    <h2 className="card-title">G-Tech Summit 2025</h2>
-  </a>
-</SwiperSlide>
-
+                <p className="badge badge-designer">Certificate</p>
+                <h2 className="card-title">G-Tech Summit 2025</h2>
+              </a>
+            </SwiperSlide>
 
             <SwiperSlide className="card-item">
               <a href="#" className="card-link">
