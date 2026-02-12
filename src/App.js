@@ -297,7 +297,7 @@ function App() {
       <section className="home" id="home">
         <div className="content">
           <div className="text-content">
-            <div className="text">Hello, It's Me </div>
+            <div className="text">Hey! It's Me </div>
             <div className="name">Ritchelle Rueras</div>
             <div className="job">
               <div className="job">
