@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import {
-  FaSearch,
   FaArrowUp,
   FaTimes,
   FaBars,
@@ -249,12 +248,6 @@ function App() {
                 Contact
               </a>
             </li>
-            <div className="search-box">
-              <input type="text" placeholder="Search here..." />
-              <button className="search-btn" aria-label="Search">
-                <FaSearch />
-              </button>
-            </div>
             <div className="cancel-btn" onClick={hideMenu}>
               <FaTimes />
             </div>
