@@ -680,35 +680,95 @@ section .button button:hover {
   width: calc(100% / 3 - 20px);
   text-align: center;
   border-radius: 12px;
-  padding: 30px 10px;
+  padding: 30px 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
   cursor: default;
   transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.projects .boxes .portfolio-box {
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+  border: 2px solid #5372F0;
+}
+.projects .boxes .portfolio-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(83, 114, 240, 0.1), rgba(64, 112, 244, 0.1));
+  pointer-events: none;
+}
+.projects .boxes .portfolio-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(83, 114, 240, 0.3);
 }
 .projects .boxes .box:hover {
   background: #4070f4;
   color: #fff;
 }
+.projects .boxes .portfolio-box:hover {
+  background: #4070f4 !important;
+  color: #fff;
+}
 .projects .boxes .box .icon {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   background: #4070f4;
   border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
   color: #fff;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 15px auto;
   transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+.projects .boxes .portfolio-box .icon {
+  background: #5372F0;
+  box-shadow: 0 5px 15px rgba(83, 114, 240, 0.4);
 }
 .boxes .box:hover .icon {
   background-color: #fff;
   color: #4070f4;
+  transform: rotate(360deg);
 }
-.projects .boxes .box:hover .topic,
-.projects .boxes .box:hover p {
-  color: #0e2431;
-  transition: all 0.4s ease;
+.projects .boxes .box .topic {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.projects .boxes .box p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+.project-link {
+  display: inline-block;
+  color: #5372F0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+.projects .boxes .box:hover .project-link {
+  color: #fff;
+  transform: translateX(5px);
 }
 .projects .boxes .box:hover .topic,
 .projects .boxes .box:hover p {
@@ -869,10 +929,10 @@ footer .text span a:hover {
   .skills-details .box {
     width: calc(100% / 2 - 15px); /* 2 columns on medium screens */
   }
-  .projects .boxes .box {
+ /* .projects .boxes .box {
     margin: 20px 0;
     width: calc(100% / 2 - 20px);
-  }
+  }*/
 }
 @media (max-width: 900px) {
   .about .left img {
@@ -939,10 +999,6 @@ footer .text span a:hover {
   .skills-details .box {
     width: 100%;
   }
-  .projects .boxes .box {
-    margin: 20px 0;
-    width: 100%;
-  }
   .contact .text {
     width: 100%;
   }
@@ -960,7 +1016,7 @@ footer .text span a:hover {
   }
 }
 
-/* Responsive Design */
+/* Experience Responsive Design */
 @media (max-width: 900px) {
   .experiences-slider {
     gap: 20px;
@@ -974,7 +1030,6 @@ footer .text span a:hover {
     font-size: 1.5rem;
   }
 }
-
 @media (max-width: 768px) {
   .experiences .title span {
     font-size: 2rem;
@@ -1026,7 +1081,6 @@ footer .text span a:hover {
     margin-top: 60px;
   }
 }
-
 @media (max-width: 480px) {
   .experiences {
     padding: 60px 0;
@@ -1064,5 +1118,35 @@ footer .text span a:hover {
 
   .next-btn {
     right: 35%;
+  }
+}
+
+/* Projects Responsive adjustments */
+@media (max-width: 1000px) {
+  .projects .boxes .box {
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .projects .boxes .box {
+    width: 100%;
+    margin: 15px 0;
+  }
+  
+  .projects .boxes .portfolio-box {
+    order: -1; /* Makes portfolio project appear first on mobile */
+  }
+}
+@media (max-width: 480px) {
+  .projects .boxes .box {
+    padding: 25px 15px;
+  }
+  
+  .projects .boxes .box .topic {
+    font-size: 1.1rem;
+  }
+  
+  .projects .boxes .box p {
+    font-size: 0.9rem;
   }
 }

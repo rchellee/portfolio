@@ -19,6 +19,7 @@ import {
   FaMapMarkerAlt,
   FaChevronLeft,
   FaChevronRight,
+  FaExternalLinkAlt,
 } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -35,6 +36,7 @@ import gtechPDF from "./assets/gtech.pdf";
 import marianaBg from "./assets/mariana.png";
 import seadonBg from "./assets/SEADON.png";
 import teleperformanceBg from "./assets/TP.jpg";
+import portfolioBg from "./assets/portfolio-bg.png";
 
 function App() {
   const [isSticky, setIsSticky] = useState(false);
@@ -43,6 +45,8 @@ function App() {
 
   const resumeLink =
     "https://www.canva.com/design/DAG-2r78ojI/_p-LB_N8q5fRBRMQUnMm4Q/view?utm_content=DAG-2r78ojI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6808e672bb";
+
+  const portfolioLink = "https://ritchelleportfolio.netlify.app";
 
   // Experience data array
   const experiences = [
@@ -123,8 +127,13 @@ function App() {
       prev === 0 ? experiences.length - 1 : prev - 1,
     );
   };
+
   const goToExperience = (index) => {
     setCurrentExperience(index);
+  };
+
+  const openPortfolio = () => {
+    window.open(portfolioLink, "_blank");
   };
 
   return (
@@ -455,16 +464,34 @@ function App() {
             <span>My Projects</span>
           </div>
           <div className="boxes">
-            <div className="box">
+            {/* Portfolio Project - Featured */}
+            <div
+              className="box portfolio-box"
+              onClick={openPortfolio}
+              style={{
+                cursor: "pointer",
+                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(${portfolioBg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
               <div className="icon">
                 <FaDesktop />
               </div>
-              <div className="topic">Web Devlopment</div>
+              <div className="topic">
+                Personal Portfolio
+                <FaExternalLinkAlt
+                  style={{ fontSize: "0.8rem", marginLeft: "8px" }}
+                />
+              </div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Mollitia autem quam odio, qui voluptatem eligendi?
+                My personal portfolio website built with React.js. Showcases my
+                skills, experiences, and projects in a modern, responsive
+                design.
               </p>
+              <span className="project-link">View Live →</span>
             </div>
+
             <div className="box">
               <div className="icon">
                 <FaPaintBrush />
