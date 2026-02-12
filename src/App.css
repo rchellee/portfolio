@@ -1033,131 +1033,6 @@ section .button button:hover {
   font-size: 0.7rem;
 }
 
-/* Responsive Design */
-@media (min-width: 1200px) {
-  .site-footer {
-    padding: 20px 0 10px;
-  }
-
-  .footer-content {
-    max-width: 1100px;
-  }
-
-  .footer-main {
-    gap: 25px;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-  .footer-main {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-    padding-right: 0;
-  }
-
-  .footer-form-section {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-footer {
-    padding: 15px 0 10px;
-  }
-
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-bottom: 15px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    padding: 12px 0;
-  }
-
-  .copyright {
-    text-align: center;
-  }
-
-  .footer-form-section {
-    padding: 15px;
-  }
-
-  .submit-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .site-footer {
-    padding: 15px 0 10px;
-  }
-
-  .footer-logo {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-  }
-
-  .footer-tagline {
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-  }
-
-  .footer-response {
-    padding: 6px 10px;
-    font-size: 0.75rem;
-  }
-
-  .contact-item {
-    padding: 5px 6px;
-  }
-
-  .contact-text .value {
-    font-size: 0.75rem;
-  }
-
-  .footer-links h3,
-  .footer-contact h3,
-  .footer-form-section h3 {
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-  }
-
-  .footer-links li {
-    margin-bottom: 5px;
-  }
-
-  .footer-links a {
-    font-size: 0.8rem;
-  }
-
-  .social-link {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
-  }
-
-  .copyright p {
-    font-size: 0.7rem;
-  }
-
-  .copyright .credit {
-    font-size: 0.65rem;
-  }
-}
-
 /* Scroll TO Top Button CSS */
 .scroll-button a {
   position: fixed;
@@ -1171,12 +1046,40 @@ section .button button:hover {
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
 }
+
 /* Responsive Media Query */
+@media (min-width: 1200px) {
+  .site-footer {
+    padding: 20px 0 10px;
+  }
+  .footer-content {
+    max-width: 1100px;
+  }
+  .footer-main {
+    gap: 25px;
+  }
+}
+
 @media (max-width: 1190px) {
   section .content {
     width: 85%;
   }
 }
+
+@media (max-width: 992px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    padding-right: 0;
+  }
+  .footer-form-section {
+    margin-bottom: 20px;
+  }
+}
+
 @media (max-width: 1000px) {
   nav .navbar .media-icons {
     display: none;
@@ -1200,7 +1103,11 @@ section .button button:hover {
   .skills-details .box {
     width: calc(100% / 2 - 15px); /* 2 columns on medium screens */
   }
+  .projects .boxes .box {
+    width: calc(100% / 2 - 20px);
+  }
 }
+
 @media (max-width: 900px) {
   .about .left img {
     height: 350px;
@@ -1209,7 +1116,17 @@ section .button button:hover {
   nav .navbar .media-icons {
     display: none;
   }
+  .experiences-slider {
+    gap: 20px;
+  }
+  .experience-card {
+    padding: 30px;
+  }
+  .company-name {
+    font-size: 1.5rem;
+  }
 }
+
 @media (max-width: 750px) {
   nav .navbar {
     width: 90%;
@@ -1225,11 +1142,9 @@ section .button button:hover {
     cursor: pointer;
     z-index: 999;
   }
-
   nav.sticky .menu-btn {
     color: #fff !important;
   }
-
   /* Menu styling - hidden by default using opacity/transform, not display */
   nav .navbar .menu {
     position: absolute;
@@ -1252,7 +1167,6 @@ section .button button:hover {
     transform: translateY(-10px);
     pointer-events: none; /* Prevents clicks when hidden */
   }
-  
   /* Gradient overlay */
   nav .navbar .menu::before {
     content: "";
@@ -1266,14 +1180,12 @@ section .button button:hover {
     pointer-events: none;
     z-index: -1;
   }
-  
   /* Active state - show menu */
   .menu.active {
     opacity: 1 !important;
     transform: translateY(0) !important;
     pointer-events: auto !important; /* Allow clicks when visible */
   }
-
   /* Menu links - single definition */
   nav .navbar .menu a {
     font-size: 16px;
@@ -1287,18 +1199,15 @@ section .button button:hover {
     z-index: 1;
     text-align: left;
   }
-
   nav .navbar .menu a:hover {
     color: #fff;
     background: rgba(83, 114, 240, 0.3);
     transform: translateX(5px);
   }
-  
   nav.sticky .menu a:hover {
     color: #fff;
     background: rgba(255, 255, 255, 0.15);
   }
-
   /* Cancel button inside menu */
   .navbar .menu .cancel-btn {
     display: flex !important;
@@ -1317,55 +1226,123 @@ section .button button:hover {
     background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
   }
-  
   .navbar .menu .cancel-btn:hover {
     background: rgba(83, 114, 240, 0.4);
     transform: rotate(90deg);
   }
-  
   /* Remove duplicate styles */
   nav .navbar .menu li {
     margin: 0;
     padding: 0;
     width: 100%;
   }
-  
   /* Hide media icons on mobile */
   nav .navbar .media-icons {
     display: none;
   }
-
   /* Home section adjustments */
   .home .text-two {
     font-size: 65px;
   }
-
   .home .text-three {
     font-size: 35px;
   }
-
   /* Skills section */
   .skills .skills-details {
     align-items: center;
     justify-content: center;
     flex-direction: column;
   }
-
   .skills-details .text {
     width: 100%;
     margin-bottom: 50px;
   }
-
   .skills-details .boxes {
     justify-content: center;
     align-items: center;
     width: 100%;
   }
-
   .skills-details .box {
     width: 100%;
   }
+  .projects .boxes .box {
+    width: 100%;
+    margin: 15px 0;
+  }
+  .projects .boxes .portfolio-box {
+    order: -1; /* Makes portfolio project appear first on mobile */
+  }
 }
+
+@media (max-width: 768px) {
+  .experiences .title span {
+    font-size: 2rem;
+  }
+  .experiences-slider {
+    flex-direction: column;
+    gap: 20px;
+    min-height: auto;
+  }
+  .slider-nav-btn {
+    position: absolute;
+    bottom: -60px;
+  }
+  .prev-btn {
+    left: 40%;
+    transform: translateX(-50%);
+  }
+  .next-btn {
+    right: 40%;
+    transform: translateX(50%);
+  }
+  .experience-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  .company-info {
+    width: 100%;
+  }
+  .experience-meta {
+    justify-content: center;
+    gap: 15px;
+  }
+  .experience-description {
+    margin-left: 15px;
+    padding-left: 20px;
+  }
+  .slider-dots {
+    margin-top: 60px;
+  }
+  .site-footer {
+    padding: 15px 0 10px;
+  }
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 0;
+  }
+  .copyright {
+    text-align: center;
+  }
+  .footer-form-section {
+    padding: 15px;
+  }
+  .submit-btn {
+    width: 100%;
+  }
+}
+
 @media (max-width: 500px) {
   .home .text-two {
     font-size: 55px;
@@ -1379,137 +1356,87 @@ section .button button:hover {
   }
 }
 
-/* Experience Responsive Design */
-@media (max-width: 900px) {
-  .experiences-slider {
-    gap: 20px;
-  }
-
-  .experience-card {
-    padding: 30px;
-  }
-
-  .company-name {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .experiences .title span {
-    font-size: 2rem;
-  }
-
-  .experiences-slider {
-    flex-direction: column;
-    gap: 20px;
-    min-height: auto;
-  }
-
-  .slider-nav-btn {
-    position: absolute;
-    bottom: -60px;
-  }
-
-  .prev-btn {
-    left: 40%;
-    transform: translateX(-50%);
-  }
-
-  .next-btn {
-    right: 40%;
-    transform: translateX(50%);
-  }
-
-  .experience-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-  }
-
-  .company-info {
-    width: 100%;
-  }
-
-  .experience-meta {
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .experience-description {
-    margin-left: 15px;
-    padding-left: 20px;
-  }
-
-  .slider-dots {
-    margin-top: 60px;
-  }
-}
 @media (max-width: 480px) {
   .experiences {
     padding: 60px 0;
   }
-
   .experiences .title {
     margin-bottom: 40px;
   }
-
   .experience-card {
     padding: 25px 20px;
   }
-
   .company-name {
     font-size: 1.3rem;
   }
-
   .experience-role {
     font-size: 1.1rem;
     padding: 6px 15px;
   }
-
   .experience-date,
   .experience-location {
     font-size: 0.9rem;
   }
-
   .experience-description li {
     font-size: 1rem;
   }
-
   .prev-btn {
     left: 35%;
   }
-
   .next-btn {
     right: 35%;
   }
-}
-
-/* Projects Responsive adjustments */
-@media (max-width: 1000px) {
-  .projects .boxes .box {
-    width: calc(100% / 2 - 20px);
-  }
-}
-@media (max-width: 750px) {
-  .projects .boxes .box {
-    width: 100%;
-    margin: 15px 0;
-  }
-
-  .projects .boxes .portfolio-box {
-    order: -1; /* Makes portfolio project appear first on mobile */
-  }
-}
-@media (max-width: 480px) {
   .projects .boxes .box {
     padding: 25px 15px;
   }
-
   .projects .boxes .box .topic {
     font-size: 1.1rem;
   }
-
   .projects .boxes .box p {
     font-size: 0.9rem;
+  }
+  .site-footer {
+    padding: 15px 0 10px;
+  }
+  .footer-logo {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+  .footer-tagline {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  .footer-response {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+  .contact-item {
+    padding: 5px 6px;
+  }
+  .contact-text .value {
+    font-size: 0.75rem;
+  }
+  .footer-links h3,
+  .footer-contact h3,
+  .footer-form-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  .footer-links li {
+    margin-bottom: 5px;
+  }
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+  .social-link {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+  .copyright p {
+    font-size: 0.7rem;
+  }
+  .copyright .credit {
+    font-size: 0.65rem;
   }
 }
