@@ -20,6 +20,11 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaExternalLinkAlt,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarker,
+  FaRegClock,
+  FaGithub,
 } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -42,11 +47,47 @@ function App() {
   const [isSticky, setIsSticky] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [currentExperience, setCurrentExperience] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   const resumeLink =
     "https://www.canva.com/design/DAG-2r78ojI/_p-LB_N8q5fRBRMQUnMm4Q/view?utm_content=DAG-2r78ojI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h6808e672bb";
 
   const portfolioLink = "https://ritchelleportfolio.netlify.app";
+
+  // Contact Information
+  const contactInfo = {
+    email: "ritchellerueras@gmail.com",
+    phone: "09709573613",
+    location: "Metro Manila, Philippines",
+    responseTime: "24-48 hours",
+    tagline:
+      "Providing innovative IT solutions and data-driven systems for modern businesses.",
+    socials: {
+      facebook: "https://www.facebook.com/ritchelle.rueras.71",
+      twitter: "https://x.com/its_rchelle?t=_8ArWFOmakl7on9ewUQAJQ&s=09",
+      instagram:
+        "https://www.instagram.com/rtch_elle?igsh=MW9hbnFxdGpiM2k0OQ==",
+      linkedin:
+        "https://www.linkedin.com/in/ritchelle-rueras?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      telegram: "t.me/rtch_elle",
+      github: "https://github.com/yourusername", // Add your GitHub
+    },
+  };
+
+  // Quick links for footer navigation
+  const quickLinks = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Experiences", href: "#experiences" },
+    { name: "Projects", href: "#projects" },
+    { name: "Certificates", href: "#certificates" },
+  ];
 
   // Experience data array
   const experiences = [
@@ -134,6 +175,26 @@ function App() {
 
   const openPortfolio = () => {
     window.open(portfolioLink, "_blank");
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard!");
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Here you would typically send the form data to your backend
+    console.log("Form submitted:", formData);
+    alert("Thank you for your message! I'll get back to you soon.");
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
@@ -631,34 +692,175 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="contact" id="contact">
-        <div className="content">
-          <div className="title">
-            <span>Contact Me</span>
-          </div>
-          <div className="text">
-            <div className="topic">Have Any Project?</div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam
-              neque ipsum corrupti dolores, facere numquam voluptate aspernatur
-              sit perferendis qui nisi modi! Recusandae deserunt consequatur
-              voluptatibus alias repellendus nobis eligendi.
-            </p>
-            <div className="button">
-              <button>Let's Chat</button>
+      {/* Unified Contact & Footer Section */}
+      <footer className="site-footer" id="contact">
+        <div className="footer-content">
+          {/* Main Footer Content */}
+          <div className="footer-main">
+            {/* Brand & Tagline */}
+            <div className="footer-brand">
+              <h2 className="footer-logo">Ritchelle Rueras</h2>
+              <p className="footer-tagline">{contactInfo.tagline}</p>
+              <div className="footer-response">
+                <FaRegClock />
+                <span>
+                  Typically responds within {contactInfo.responseTime}
+                </span>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                {quickLinks.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href} onClick={hideMenu}>
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Information */}
+            <div className="footer-contact">
+              <h3>Contact Info</h3>
+              <div className="contact-details-list">
+                <div
+                  className="contact-item"
+                  onClick={() => copyToClipboard(contactInfo.email)}
+                >
+                  <FaEnvelope />
+                  <div className="contact-text">
+                    <span className="label">Email</span>
+                    <span className="value">{contactInfo.email}</span>
+                  </div>
+                </div>
+                <div
+                  className="contact-item"
+                  onClick={() => copyToClipboard(contactInfo.phone)}
+                >
+                  <FaPhone />
+                  <div className="contact-text">
+                    <span className="label">Phone</span>
+                    <span className="value">{contactInfo.phone}</span>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <FaMapMarker />
+                  <div className="contact-text">
+                    <span className="label">Location</span>
+                    <span className="value">{contactInfo.location}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Footer */}
-      <footer>
-        <div className="text">
-          <span>
-            Created By <a href="#home">M4XPAYNE</a> | &#169;{" "}
-            {new Date().getFullYear()} All Rights Reserved
-          </span>
+          {/* Contact Form Section */}
+          <div className="footer-form-section">
+            <h3>Send Me a Message</h3>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="4"
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
+              <button type="submit" className="submit-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          {/* Social Links & Copyright */}
+          <div className="footer-bottom">
+            <div className="social-links">
+              <a
+                href={contactInfo.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href={contactInfo.socials.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href={contactInfo.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href={contactInfo.socials.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href={contactInfo.socials.telegram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaTelegram />
+              </a>
+              <a
+                href={contactInfo.socials.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+              >
+                <FaGithub />
+              </a>
+            </div>
+            <div className="copyright">
+              <p>
+                &copy; {new Date().getFullYear()} Ritchelle Rueras. All Rights
+                Reserved.
+              </p>
+              <p className="credit">Designed & Built by Ritchelle Rueras</p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
