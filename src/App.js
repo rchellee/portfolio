@@ -648,35 +648,80 @@ function App() {
             </SwiperSlide>
 
             <SwiperSlide className="card-item">
-              <a href="#" className="card-link">
-                <img
-                  src="/assets/cert2.jpg"
-                  alt="Certificate 2"
+              <a
+                href={gtechPDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-link"
+              >
+                <div
                   className="card-image"
-                />
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "#f5f7ff",
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    color: "#5372F0",
+                  }}
+                >
+                  View PDF Certificate
+                </div>
+
                 <p className="badge badge-developer">Certificate</p>
                 <h2 className="card-title">React.js Training</h2>
               </a>
             </SwiperSlide>
 
             <SwiperSlide className="card-item">
-              <a href="#" className="card-link">
-                <img
-                  src="/assets/cert3.jpg"
-                  alt="Certificate 3"
+              <a
+                href={gtechPDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-link"
+              >
+                <div
                   className="card-image"
-                />
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "#f5f7ff",
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    color: "#5372F0",
+                  }}
+                >
+                  View PDF Certificate
+                </div>
+
                 <p className="badge badge-marketer">Certificate</p>
                 <h2 className="card-title">Database Management</h2>
               </a>
             </SwiperSlide>
             <SwiperSlide className="card-item">
-              <a href="#" className="card-link">
-                <img
-                  src="/assets/cert3.jpg"
-                  alt="Certificate 3"
+              <a
+                href={gtechPDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-link"
+              >
+                <div
                   className="card-image"
-                />
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "#f5f7ff",
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    color: "#5372F0",
+                  }}
+                >
+                  View PDF Certificate
+                </div>
+                
                 <p className="badge badge-marketer">Certificate</p>
                 <h2 className="card-title">Database Management</h2>
               </a>
